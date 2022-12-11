@@ -4,7 +4,7 @@ from django.shortcuts import render,redirect
 from django.contrib.auth.models import User,auth
 from django.contrib import messages
 from django.http import HttpResponse
-
+from USERACCOUNTS.models import *
 
 def home(request):
     return render(request,'home.html')
@@ -60,3 +60,24 @@ def login(request):
 def logout(request):
     auth.logout(request)
     return redirect('/') 
+
+
+def enteroreditdata(request):
+    return render(request,'enteroreditdata.html')
+
+#Going wrong - data input from forms to database 
+def userinfo(request):
+    if request.method == 'POST':
+        userid = request.POST['userid']
+        usernname = request.POST['username']
+        gender = request.POST['gender']
+        age = request.POST['age']
+        email = request.POST['email']
+        phone_no = request.POST['phone_no']
+        working_or_not = request.POST['working_or_not']
+        print(userid,usernname)
+        #new_user = userinfo(userid=userid,username=usernname,gender=gender,age=age,email=email,phone_no=phone_no,working_or_not=working_or_not)
+        #new_user.save()
+        print("data written")
+        
+    return render(request,'userinfo.html')
