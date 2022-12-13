@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
+import pymysql
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -75,12 +76,15 @@ WSGI_APPLICATION = 'EXPENSE_TRACKER.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-
+pymysql.install_as_MySQLdb()
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'EXPENSEDATABASE',
+        'USER':'root',
+        'PASSWORD':'Shalu@sql2022',
+        'HOST':'127.0.0.1',
     }
 }
 

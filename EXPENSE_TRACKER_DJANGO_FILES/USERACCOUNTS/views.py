@@ -68,16 +68,34 @@ def enteroreditdata(request):
 #Going wrong - data input from forms to database 
 def userinfo(request):
     if request.method == 'POST':
-        userid = request.POST['userid']
-        usernname = request.POST['username']
-        gender = request.POST['gender']
-        age = request.POST['age']
-        email = request.POST['email']
-        phone_no = request.POST['phone_no']
-        working_or_not = request.POST['working_or_not']
+        userid = request.POST.get('userid')
+        usernname = request.POST.get('username')
+        gender = request.POST.get('gender')
+        age = request.POST.get('age')
+        email = request.POST.get('email')
+        phone_no = request.POST.get('phone_no')
+        working_or_not = request.POST.get('working_or_not')
         print(userid,usernname)
-        #new_user = userinfo(userid=userid,username=usernname,gender=gender,age=age,email=email,phone_no=phone_no,working_or_not=working_or_not)
-        #new_user.save()
+        new_user = Userinfo(user_id=userid,username=usernname,gender=gender,age=age,email=email,phone_no=phone_no,working_or_not=working_or_not)
+        new_user.save()
         print("data written")
         
     return render(request,'userinfo.html')
+
+
+def incomesources(request):
+    if request.method == 'POST':
+        userid = request.POST.get('userid')
+        source_id = request.POST.get('source_id')
+        monthly_income = request.POST.get('monthly_income')
+        rental_income = request.POST.get('rental_income')
+        intrest_amount = request.POST.get('intrest_amount')
+        other_sources = request.POST.get('other_sources')
+        total_cash = request.POST.get('total_cash')
+        bank_balance = request.POST.get('bank_balance')
+        net_amount = request.POST.get('net_amount')
+        entry = Incomesources(userid==Userinfo.user_id,source_id=source_id,monthly_income=monthly_income,rental_income=rental_income,intrest_amount=intrest_amount,other_sources=other_sources,total_cash=total_cash,bank_balance=bank_balance,net_amount=net_amount)
+        entry.save()
+        print("data2 written")
+        
+    return render(request,'incomesources.html')

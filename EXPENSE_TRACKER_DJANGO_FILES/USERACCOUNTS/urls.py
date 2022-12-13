@@ -10,4 +10,5 @@ urlpatterns = [
     path('logout',views.logout,name="logout"),
     path('enteroreditdata',views.enteroreditdata,name="enteroreditdata"),
     path('userinfo',views.userinfo,name='userinfo'),
+    path('incomesources',views.incomesources,name='incomesources'),
 ]

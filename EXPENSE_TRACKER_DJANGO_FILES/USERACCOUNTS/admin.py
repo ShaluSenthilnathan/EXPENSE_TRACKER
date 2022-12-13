@@ -1,3 +1,9 @@
 from django.contrib import admin
 
-# Register your models here.
+from USERACCOUNTS.models import *
+
+admin.site.register(Userinfo)
+admin.site.register(Bankdata)
+admin.site.register(MonthlyExpenses)
+admin.site.register(Category)
+admin.site.register(Incomesources)
