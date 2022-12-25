@@ -65,7 +65,6 @@ def logout(request):
 def enteroreditdata(request):
     return render(request,'enteroreditdata.html')
 
-#Going wrong...... 
 def userinfo(request):
     if request.method == 'POST':
         userid = request.POST.get('userid')
@@ -76,8 +75,26 @@ def userinfo(request):
         phone_no = request.POST.get('phone_no')
         working_or_not = request.POST.get('working_or_not')
         print(userid,usernname)
-        new_user = userinfo(user_id=userid,username=usernname,gender=gender,age=age,email=email,phone_no=phone_no,working_or_not=working_or_not)
+        new_user = Userinfo(user_id=userid,username=usernname,gender=gender,age=age,email=email,phone_no=phone_no,working_or_not=working_or_not)
         new_user.save()
         print("data written")
         
     return render(request,'userinfo.html')
+
+
+def incomesources(request):
+    if request.method == 'POST':
+        userid = request.POST.get('userid')
+        source_id = request.POST.get('source_id')
+        monthly_income = request.POST.get('monthly_income')
+        rental_income = request.POST.get('rental_income')
+        intrest_amount = request.POST.get('intrest_amount')
+        other_sources = request.POST.get('other_sources')
+        total_cash = request.POST.get('total_cash')
+        bank_balance = request.POST.get('bank_balance')
+        net_amount = request.POST.get('net_amount')
+        entry = incomesources(userid=userid,source_id=source_id,monthly_income=monthly_income,rental_income=rental_income,intrest_amount=intrest_amount,other_sources=other_sources,total_cash=total_cash,bank_balance=bank_balance,net_amount=net_amount)
+        entry.save()
+        print("data2 written")
+        
+    return render(request,'incomesources.html')
