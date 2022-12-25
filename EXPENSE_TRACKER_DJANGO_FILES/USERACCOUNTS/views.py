@@ -65,7 +65,7 @@ def logout(request):
 def enteroreditdata(request):
     return render(request,'enteroreditdata.html')
 
-#Going wrong - data input from forms to database 
+
 def userinfo(request):
     if request.method == 'POST':
         userid = request.POST.get('userid')
@@ -94,7 +94,7 @@ def incomesources(request):
         total_cash = request.POST.get('total_cash')
         bank_balance = request.POST.get('bank_balance')
         net_amount = request.POST.get('net_amount')
-        entry = Incomesources(userid==Userinfo.user_id,source_id=source_id,monthly_income=monthly_income,rental_income=rental_income,intrest_amount=intrest_amount,other_sources=other_sources,total_cash=total_cash,bank_balance=bank_balance,net_amount=net_amount)
+        entry = Incomesources(userid=userid,source_id=source_id,monthly_income=monthly_income,rental_income=rental_income,intrest_amount=intrest_amount,other_sources=other_sources,total_cash=total_cash,bank_balance=bank_balance,net_amount=net_amount)
         entry.save()
         print("data2 written")
         
