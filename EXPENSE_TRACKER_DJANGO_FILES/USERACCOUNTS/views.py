@@ -88,7 +88,7 @@ def enterincomesources(request):
         form = IncomesourcesTask(request.POST or None)
         if form.is_valid():
             instance = form.save(commit=False)
-            instance.userid = request.userid
+            instance.userid = Userinfo.user_id
             instance.save()
         return redirect('home')
     else:
