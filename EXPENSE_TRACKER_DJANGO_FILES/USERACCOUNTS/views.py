@@ -71,18 +71,20 @@ def enteroreditdata(request):
 def enteruserinfo(request):
     if request.method == 'POST':
         form = UserinfoTask(request.POST or None)
-        print("check1")
         if form.is_valid():
             form.save()
+            messages.success(request,("DATA SUCCESSFULY ADDED TO DATABASE"))
+            return redirect('home')
         else:
+            messages.error(request,form.errors)
             print(form.errors)
-        return redirect('home')
+            return redirect('enteruserinfo')
     else:
         alldata = Userinfo.objects.all
         return render(request,'enteruserinfo.html',{'all_data':alldata})
+        
     
-
-
+    
 def enterincomesources(request):
     if request.method == 'POST':
         form = IncomesourcesTask(request.POST or None)
@@ -94,6 +96,7 @@ def enterincomesources(request):
     else:
         alldata = Incomesources.objects.all
         return render(request,'enterincomesources.html',{'all_data':alldata})
+
 
 def entermonthlyexpenses(request):
     return render(request,'entermonthlyexpenses.html')
