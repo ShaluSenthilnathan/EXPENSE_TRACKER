@@ -1,10 +1,12 @@
+import re
 from django.shortcuts import render,HttpResponse 
-
 from django.shortcuts import render,redirect
 from django.contrib.auth.models import User,auth
 from django.contrib import messages
 from django.http import HttpResponse
 from USERACCOUNTS.models import *
+from django.contrib.auth.forms import UserCreationForm
+from USERACCOUNTS.forms import UserinfoTask,IncomesourcesTask
 
 def home(request):
     return render(request,'home.html')
@@ -66,36 +68,42 @@ def enteroreditdata(request):
     return render(request,'enteroreditdata.html')
 
 
-def userinfo(request):
+def enteruserinfo(request):
     if request.method == 'POST':
-        userid = request.POST.get('userid')
-        usernname = request.POST.get('username')
-        gender = request.POST.get('gender')
-        age = request.POST.get('age')
-        email = request.POST.get('email')
-        phone_no = request.POST.get('phone_no')
-        working_or_not = request.POST.get('working_or_not')
-        print(userid,usernname)
-        new_user = Userinfo(user_id=userid,username=usernname,gender=gender,age=age,email=email,phone_no=phone_no,working_or_not=working_or_not)
-        new_user.save()
-        print("data written")
+        form = UserinfoTask(request.POST or None)
+        if form.is_valid():
+            form.save()
+            messages.success(request,("DATA SUCCESSFULY ADDED TO DATABASE"))
+            return redirect('home')
+        else:
+            messages.error(request,form.errors)
+            print(form.errors)
+            return redirect('enteruserinfo')
+    else:
+        alldata = Userinfo.objects.all
+        return render(request,'enteruserinfo.html',{'all_data':alldata})
         
-    return render(request,'userinfo.html')
+    
+    
+def enterincomesources(request):
+    if request.method == 'POST':
+        form = IncomesourcesTask(request.POST or None)
+        if form.is_valid():
+            instance = form.save(commit=False)
+            instance.userid = Userinfo.user_id
+            instance.save()
+        return redirect('home')
+    else:
+        alldata = Incomesources.objects.all
+        return render(request,'enterincomesources.html',{'all_data':alldata})
 
 
-def incomesources(request):
-    if request.method == 'POST':
-        userid = request.POST.get('userid')
-        source_id = request.POST.get('source_id')
-        monthly_income = request.POST.get('monthly_income')
-        rental_income = request.POST.get('rental_income')
-        intrest_amount = request.POST.get('intrest_amount')
-        other_sources = request.POST.get('other_sources')
-        total_cash = request.POST.get('total_cash')
-        bank_balance = request.POST.get('bank_balance')
-        net_amount = request.POST.get('net_amount')
-        entry = Incomesources(userid=userid,source_id=source_id,monthly_income=monthly_income,rental_income=rental_income,intrest_amount=intrest_amount,other_sources=other_sources,total_cash=total_cash,bank_balance=bank_balance,net_amount=net_amount)
-        entry.save()
-        print("data2 written")
-        
-    return render(request,'incomesources.html')
+def entermonthlyexpenses(request):
+    return render(request,'entermonthlyexpenses.html')
+    
+def viewdata(request):
+    return render(request,'viewdata.html')
+
+def viewuserdata(request):
+    user =  Userinfo.objects.all
+    return render(request,'viewuserdata.html',{'user':user})
