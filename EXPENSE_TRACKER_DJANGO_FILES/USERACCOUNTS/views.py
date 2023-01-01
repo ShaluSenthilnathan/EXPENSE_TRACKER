@@ -51,7 +51,7 @@ def login(request):
             auth.login(request,user)
             return redirect ("/")  #calling home page
         else:
-            messages.info(request,"Invalid Credentials")
+            messages.error(request,"Invalid Credentials")
             return redirect('login') #call the login page again
     
     else:
