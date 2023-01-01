@@ -1,4 +1,3 @@
-import re
 from django.shortcuts import render,HttpResponse 
 from django.shortcuts import render,redirect
 from django.contrib.auth.models import User,auth
@@ -52,7 +51,7 @@ def login(request):
             auth.login(request,user)
             return redirect ("/")  #calling home page
         else:
-            messages.info(request,"Invalid Credentials")
+            messages.error(request,"Invalid Credentials")
             return redirect('login') #call the login page again
     
     else:
