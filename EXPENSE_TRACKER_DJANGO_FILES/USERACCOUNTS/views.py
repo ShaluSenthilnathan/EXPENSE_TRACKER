@@ -5,7 +5,7 @@ from django.contrib import messages
 from django.http import HttpResponse
 from USERACCOUNTS.models import *
 from django.contrib.auth.forms import UserCreationForm
-from USERACCOUNTS.forms import UserinfoTask,IncomesourcesTask
+from USERACCOUNTS.forms import *
 
 def home(request):
     return render(request,'home.html')
@@ -91,10 +91,21 @@ def enterincomesources(request):
             instance = form.save(commit=False)
             instance.userid = Userinfo.user_id
             instance.save()
-        return redirect('home')
+            return redirect('home')
+        else:
+            messages.error(request,form.errors)
+            print(form.errors)
+            return redirect('enterincomesources')
     else:
         alldata = Incomesources.objects.all
         return render(request,'enterincomesources.html',{'all_data':alldata})
+    
+def entermonthlyexpenses(request):
+    return render(request,'entermonthlyexpenses.html',{})
+    
+    
+def enterbankdata(request):
+    return render(request,'enterbankdata.html')
 
 
 def entermonthlyexpenses(request):
