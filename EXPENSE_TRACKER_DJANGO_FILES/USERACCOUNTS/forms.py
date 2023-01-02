@@ -14,7 +14,7 @@ class IncomesourcesTask(forms.ModelForm):
         
 class MonthlyExpensesTask(forms.ModelForm):
     class Meta:
-        model = MonthlyExpenses 
+        model = MonthlyExpenses
         fields = ['userid','expense_no','date_of_expense','expense_acronym','expense_desc','mode_of_payment']
         
 class BankdataTask(forms.ModelForm):

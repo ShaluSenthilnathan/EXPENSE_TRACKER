@@ -5,6 +5,7 @@ from django.contrib import messages
 from django.http import HttpResponse
 from USERACCOUNTS.models import *
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.decorators import login_required
 from USERACCOUNTS.forms import *
 
 def home(request):
@@ -82,15 +83,12 @@ def enteruserinfo(request):
         alldata = Userinfo.objects.all
         return render(request,'enteruserinfo.html',{'all_data':alldata})
         
-    
-    
+        
 def enterincomesources(request):
     if request.method == 'POST':
         form = IncomesourcesTask(request.POST or None)
         if form.is_valid():
-            instance = form.save(commit=False)
-            instance.userid = Userinfo.user_id
-            instance.save()
+            form.save()
             return redirect('home')
         else:
             messages.error(request,form.errors)
