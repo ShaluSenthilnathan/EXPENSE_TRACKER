@@ -134,3 +134,5 @@ def viewdata(request):
 def viewuserdata(request):
     user =  Userinfo.objects.all
     return render(request,'viewuserdata.html',{'user':user})
+
+
