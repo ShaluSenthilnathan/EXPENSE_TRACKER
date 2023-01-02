@@ -79,7 +79,7 @@ class AuthUserUserPermissions(models.Model):
 
 
 class Bankdata(models.Model):
-    userid = models.ForeignKey('Userinfo', models.DO_NOTHING, db_column='USERID', blank=True, null=True)  # Field name made lowercase.
+    userid = models.ForeignKey('Userinfo',on_delete=models.CASCADE,default=None,db_column='USERID', blank=True, null=True)  # Field name made lowercase.
     bank_name = models.CharField(db_column='BANK_NAME', max_length=20, blank=True, null=True)  # Field name made lowercase.
     deposit_no = models.IntegerField(db_column='DEPOSIT_NO', primary_key=True)  # Field name made lowercase.
     deposit_amount = models.IntegerField(db_column='DEPOSIT_AMOUNT', blank=True, null=True)  # Field name made lowercase.
@@ -166,10 +166,10 @@ class Incomesources(models.Model):
 
 
 class MonthlyExpenses(models.Model):
-    userid = models.ForeignKey('Userinfo', models.DO_NOTHING, db_column='USERID', blank=True, null=True)  # Field name made lowercase.
+    userid = models.ForeignKey('Userinfo',on_delete=models.CASCADE,default=None,db_column='USERID', blank=True, null=True)  # Field name made lowercase.
     expense_no = models.IntegerField(db_column='EXPENSE_NO', primary_key=True)  # Field name made lowercase.
     date_of_expense = models.DateField(db_column='DATE_OF_EXPENSE', blank=True, null=True)  # Field name made lowercase.
-    expense_acronym = models.ForeignKey(Category, models.DO_NOTHING, db_column='EXPENSE_ACRONYM', blank=True, null=True)  # Field name made lowercase.
+    expense_acronym = models.ForeignKey('Category',on_delete=models.CASCADE,default=None,db_column='EXPENSE_ACRONYM', blank=True, null=True)  # Field name made lowercase.
     expense_desc = models.CharField(db_column='EXPENSE_DESC', max_length=20, blank=True, null=True)  # Field name made lowercase.
     mode_of_payment = models.CharField(db_column='MODE_OF_PAYMENT', max_length=20, blank=True, null=True)  # Field name made lowercase.
 

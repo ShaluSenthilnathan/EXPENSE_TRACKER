@@ -98,16 +98,35 @@ def enterincomesources(request):
         alldata = Incomesources.objects.all
         return render(request,'enterincomesources.html',{'all_data':alldata})
     
-def entermonthlyexpenses(request):
-    return render(request,'entermonthlyexpenses.html',{})
-    
-    
 def enterbankdata(request):
-    return render(request,'enterbankdata.html')
-
-
+    if request.method == 'POST':
+        form = BankdataTask(request.POST or None)
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+        else:
+            messages.error(request,form.errors)
+            print(form.errors)
+            return redirect('enterbankdata')
+    else:
+        alldata = Bankdata.objects.all
+        return render(request,'enterbankdata.html',{'all_data':alldata})
+    
+    
 def entermonthlyexpenses(request):
-    return render(request,'entermonthlyexpenses.html')
+    if request.method == 'POST':
+        form = MonthlyExpensesTask(request.POST or None)
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+        else:
+            messages.error(request,form.errors)
+            print(form.errors)
+            return redirect('entermonthlyexpenses')
+    else:
+        alldata = MonthlyExpenses.objects.all
+        return render(request,'entermonthlyexpenses.html',{'all_data':alldata})
+    
     
 def viewdata(request):
     return render(request,'viewdata.html')
