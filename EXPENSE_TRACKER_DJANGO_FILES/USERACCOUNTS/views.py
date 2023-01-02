@@ -135,4 +135,10 @@ def viewuserdata(request):
     user =  Userinfo.objects.all
     return render(request,'viewuserdata.html',{'user':user})
 
+def viewincomesourcesdata(request):
+    user =  Incomesources.objects.all
+    return render(request,'viewincomesources.html',{'user':user})
 
+def viewbankdata(request):
+    user = Bankdata.objects.all
+    return render(request,'viewbankdata.html',{'user':user})

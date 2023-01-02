@@ -18,4 +18,6 @@ urlpatterns = [
     
     path('viewdata',views.viewdata,name='viewdata'),
     path('viewuserdata',views.viewuserdata,name='viewuserdata'),
+    path('viewincomesources',views.viewincomesourcesdata,name='viewincomesources'),
+    path('viewbankdata',views.viewbankdata,name='viewbankdata'),
 ]
