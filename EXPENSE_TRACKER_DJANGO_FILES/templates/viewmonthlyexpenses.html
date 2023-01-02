@@ -69,39 +69,33 @@
             </style>
             <body>
             
-            <h3><center>INCOME SOURCES INFORMATION</center></h3><br><br>
+            <h3><center>MONTHLY EXPENSES INFORMATION</center></h3><br><br>
             
             <table id="customers" style="text-align:center">
               <tr style="text-align:center">
                 <th>USERID</th>
-                <th>SOURCE_ID</th>
-                <th>MONTHLY_INCOME</th>
-                <th>RENTAL_INCOME</th>
-                <th>INTREST_AMOUNT</th>
-                <th>OTHER_SOURCES</th>
-                <th>TOTAL_CASH</th>
-                <th>BANK_BALANCE</th>
-                <th>NET_AMOUNT</th>
+                <th>EXPENSE_NUMBER</th>
+                <th>DATE_OF_EXPENSE</th>
+                <th>EXPENSE_ACRONYM</th>
+                <th>EXPENSE_DESCRIPTION</th>
+                <th>MODE_OF_PAYMENT</th>
+
               </tr>
-              {% for obj in user2 %}
+              {% for obj in user %}
               <tr>
                 <td>{{obj.userid}}</td>
-                <td>{{obj.source_id}}</td>
-                <td>{{obj.monthly_income}}</td>
-                <td>{{obj.rental_income}}</td>
-                <td>{{obj.intrest_amount}}</td>
-                <td>{{obj.other_sources}}</td>
-                <td>{{obj.total_cash}}</td>
-                <td>{{obj.bank_balance}}</td>
-                <td>{{obj.net_amount}}</td>
-              </tr>
+                <td>{{obj.expense_no}}</td>
+                <td>{{obj.date_of_expense}}</td>
+                <td>{{obj.expense_acronym}}</td>
+                <td>{{obj.expense_desc}}</td>
+                <td>{{obj.mode_of_payment}}</td>
+                </tr>
               {% endfor %}
             </table>
         
         </body>
     </div>
     </body>
-    
-    
+
 
 </html>

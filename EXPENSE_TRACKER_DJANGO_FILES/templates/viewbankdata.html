@@ -27,10 +27,11 @@
                       Select
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="/enteruserinfo">USER INFORMATION</a></li>
-                        <li><a class="dropdown-item" href="/enterincomesources">INCOME SOURCES</a></li>
-                        <li><a class="dropdown-item" href="/entermonthlyexpenses">MONTHLY EXPENSES</a></li>
-                        <li><a class="dropdown-item" href="/enterbankdata">BANK DATA</a></li>
+                        <li><a class="dropdown-item" href="/viewuserinfo">USER INFORMATION</a></li>
+                        <li><a class="dropdown-item" href="/viewincomesources">INCOME SOURCES</a></li>
+                        <li><a class="dropdown-item" href="/viewmonthlyexpenses">MONTHLY EXPENSES</a></li>
+                        <li><a class="dropdown-item" href="/viewbankdata">BANK DATA</a></li>
+                        
                       
                       </ul>
                   </li>
@@ -84,7 +85,7 @@
                 <th>WITHDRAWABLE_AMOUNT</th>
                 <th>TOTAL_ASSET</th>
               </tr>
-              {% for obj in user %}
+              {% for obj in user4 %}
               <tr>
                 <td>{{obj.userid}}</td>
                 <td>{{obj.bank_name}}</td>

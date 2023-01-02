@@ -102,6 +102,9 @@ class Category(models.Model):
     class Meta:
         managed = False
         db_table = 'category'
+        
+    def __str__(self):
+        return self.expense_acronym
 
 
 class DjangoAdminLog(models.Model):

@@ -132,13 +132,17 @@ def viewdata(request):
     return render(request,'viewdata.html')
 
 def viewuserdata(request):
-    user =  Userinfo.objects.all
-    return render(request,'viewuserdata.html',{'user':user})
+    user1 =  Userinfo.objects.all
+    return render(request,'viewuserdata.html',{'user1':user1})
 
 def viewincomesourcesdata(request):
-    user =  Incomesources.objects.all
-    return render(request,'viewincomesources.html',{'user':user})
+    user2 =  Incomesources.objects.all
+    return render(request,'viewincomesources.html',{'user2':user2})
+
+def viewmonthlyexpenses(request):
+    user = MonthlyExpenses.objects.all
+    return render(request,'viewmonthlyexpenses.html',{'user':user})
 
 def viewbankdata(request):
-    user = Bankdata.objects.all
-    return render(request,'viewbankdata.html',{'user':user})
+    user4 = Bankdata.objects.all
+    return render(request,'viewbankdata.html',{'user4':user4})
