@@ -26,12 +26,12 @@ form label {
 }
 
 form label,
-form input {
+form input,option{
 	float:left;
 	clear:both;
 }
 
-form input {
+form input,option{
 	margin:15px 0;
 	padding:15px 10px;
 	width:100%;
@@ -49,12 +49,12 @@ form input {
 	        transition:0.2s ease all;
 }
 
-form input[type=text]:focus,
-form input[type="password"]:focus {
+form input,option[type=text]:focus,
+form input,option[type="password"]:focus {
 	border-color:cornflowerblue;
 }
 
-input[type=submit] {
+input,option[type=submit] {
 	padding:15px 50px;
 	width:auto;
 	background:green;
@@ -71,7 +71,7 @@ input[type=submit] {
 	        transition:0.2s ease all;
 }
 
-input[type=submit]:hover {
+input,option[type=submit]:hover {
 	opacity:0.8;
 }
 

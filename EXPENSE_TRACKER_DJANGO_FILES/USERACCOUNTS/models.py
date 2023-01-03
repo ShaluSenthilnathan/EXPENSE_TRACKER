@@ -6,7 +6,6 @@
 #   * Remove `managed = False` lines if you wish to allow Django to create, modify, and delete the table
 # Feel free to rename the models, but don't rename db_table values or field names.
 from django.db import models
-from django.contrib.auth.models import User 
 
 
 class AuthGroup(models.Model):
@@ -79,7 +78,7 @@ class AuthUserUserPermissions(models.Model):
 
 
 class Bankdata(models.Model):
-    userid = models.ForeignKey('Userinfo',on_delete=models.CASCADE,default=None,db_column='USERID', blank=True, null=True)  # Field name made lowercase.
+    userid = models.ForeignKey('Userinfo',on_delete=models.CASCADE,default=None,db_column='USERID', blank=True,null=True)  # Field name made lowercase.
     bank_name = models.CharField(db_column='BANK_NAME', max_length=20, blank=True, null=True)  # Field name made lowercase.
     deposit_no = models.IntegerField(db_column='DEPOSIT_NO', primary_key=True)  # Field name made lowercase.
     deposit_amount = models.IntegerField(db_column='DEPOSIT_AMOUNT', blank=True, null=True)  # Field name made lowercase.
@@ -153,7 +152,7 @@ class DjangoSession(models.Model):
 
 
 class Incomesources(models.Model):
-    userid = models.ForeignKey('Userinfo',on_delete=models.CASCADE,default=None,db_column='USERID', blank=True, null=True)  # Field name made lowercase.
+    userid = models.ForeignKey('Userinfo',on_delete=models.CASCADE,default=None,db_column='USERID', blank=True,null=True)  # Field name made lowercase.
     source_id = models.IntegerField(db_column='SOURCE_ID', primary_key=True)  # Field name made lowercase.
     monthly_income = models.IntegerField(db_column='MONTHLY_INCOME', blank=True, null=True)  # Field name made lowercase.
     rental_income = models.IntegerField(db_column='RENTAL_INCOME', blank=True, null=True)  # Field name made lowercase.
@@ -169,16 +168,19 @@ class Incomesources(models.Model):
 
 
 class MonthlyExpenses(models.Model):
-    userid = models.ForeignKey('Userinfo',on_delete=models.CASCADE,default=None,db_column='USERID', blank=True, null=True)  # Field name made lowercase.
+    userid = models.ForeignKey('Userinfo',on_delete=models.CASCADE,default=None,db_column='USERID', blank=True,null=True)  # Field name made lowercase.
     expense_no = models.IntegerField(db_column='EXPENSE_NO', primary_key=True)  # Field name made lowercase.
     date_of_expense = models.DateField(db_column='DATE_OF_EXPENSE', blank=True, null=True)  # Field name made lowercase.
-    expense_acronym = models.ForeignKey('Category',on_delete=models.CASCADE,default=None,db_column='EXPENSE_ACRONYM', blank=True, null=True)  # Field name made lowercase.
+    expense_acronym = models.ForeignKey('Category',on_delete=models.CASCADE,default=None,db_column='EXPENSE_ACRONYM', blank=True,null=True)  # Field name made lowercase.
     expense_desc = models.CharField(db_column='EXPENSE_DESC', max_length=20, blank=True, null=True)  # Field name made lowercase.
     mode_of_payment = models.CharField(db_column='MODE_OF_PAYMENT', max_length=20, blank=True, null=True)  # Field name made lowercase.
+    amount_spent = models.IntegerField(db_column='AMOUNT_SPENT', blank=True, null=True)  # Field name made lowercase.
 
     class Meta:
         managed = False
         db_table = 'monthly_expenses'
+        
+    
 
 
 class Userinfo(models.Model):
@@ -193,6 +195,6 @@ class Userinfo(models.Model):
     class Meta:
         managed = False
         db_table = 'userinfo'
-   
+    
     def __str__(self):
-        return self.user_id 
+        return self.user_id

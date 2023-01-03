@@ -79,6 +79,7 @@
                 <th>EXPENSE_ACRONYM</th>
                 <th>EXPENSE_DESCRIPTION</th>
                 <th>MODE_OF_PAYMENT</th>
+                <th>AMOUNT_SPENT</th>
 
               </tr>
               {% for obj in user %}
@@ -89,6 +90,7 @@
                 <td>{{obj.expense_acronym}}</td>
                 <td>{{obj.expense_desc}}</td>
                 <td>{{obj.mode_of_payment}}</td>
+                <td>{{obj.amount_spent}}</td>
                 </tr>
               {% endfor %}
             </table>
