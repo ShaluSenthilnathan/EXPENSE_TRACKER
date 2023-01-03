@@ -146,3 +146,7 @@ def viewmonthlyexpenses(request):
 def viewbankdata(request):
     user4 = Bankdata.objects.all
     return render(request,'viewbankdata.html',{'user4':user4})
+
+def viewexpensescategory(request):
+    user5 = Category.objects.all
+    return render(request,'viewexpensescategory.html',{'user5':user5})

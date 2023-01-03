@@ -21,3 +21,8 @@ class BankdataTask(forms.ModelForm):
     class Meta:
         model = Bankdata
         fields = ['userid','bank_name','deposit_no','deposit_amount','maturity_date','emi_number','emi_amount','loan_no','withdrawable_amount','total_asset']
+        
+class ExpenseCategoryTask(forms.ModelForm):
+    class Meta:
+        model = Category
+        fields = ['expense_acronym','expense_category']

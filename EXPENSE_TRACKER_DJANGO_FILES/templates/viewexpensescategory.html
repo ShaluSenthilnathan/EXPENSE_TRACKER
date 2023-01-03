@@ -27,11 +27,12 @@
                       Select
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="/enteruserinfo">USER INFORMATION</a></li>
-                        <li><a class="dropdown-item" href="/enterincomesources">INCOME SOURCES</a></li>
-                        <li><a class="dropdown-item" href="/entermonthlyexpenses">MONTHLY EXPENSES</a></li>
-                        <li><a class="dropdown-item" href="/enterbankdata">BANK DATA</a></li>
+                        <li><a class="dropdown-item" href="/viewuserinfo">USER INFORMATION</a></li>
+                        <li><a class="dropdown-item" href="/viewincomesources">INCOME SOURCES</a></li>
+                        <li><a class="dropdown-item" href="/viewmonthlyexpenses">MONTHLY EXPENSES</a></li>
+                        <li><a class="dropdown-item" href="/viewbankdata">BANK DATA</a></li>
                         <li><a class="dropdown-item" href="/viewexpensescategory">EXPENSES CATEGORY</a></li>
+                      
                       </ul>
                   </li>
     
@@ -69,31 +70,19 @@
             </style>
             <body>
             
-            <h3><center>INCOME SOURCES INFORMATION</center></h3><br><br>
+            <h3><center>CATEGORY OF EXPENSE</center></h3><br><br>
             
             <table id="customers" style="text-align:center">
               <tr style="text-align:center">
-                <th>USERID</th>
-                <th>SOURCE_ID</th>
-                <th>MONTHLY_INCOME</th>
-                <th>RENTAL_INCOME</th>
-                <th>INTREST_AMOUNT</th>
-                <th>OTHER_SOURCES</th>
-                <th>TOTAL_CASH</th>
-                <th>BANK_BALANCE</th>
-                <th>NET_AMOUNT</th>
+                <th>EXPENSE_ACRONYM</th>
+                <th>EXPENSE_CATEGORY</th>
+                
               </tr>
-              {% for obj in user2 %}
+              {% for obj in user5 %}
               <tr>
-                <td>{{obj.userid}}</td>
-                <td>{{obj.source_id}}</td>
-                <td>{{obj.monthly_income}}</td>
-                <td>{{obj.rental_income}}</td>
-                <td>{{obj.intrest_amount}}</td>
-                <td>{{obj.other_sources}}</td>
-                <td>{{obj.total_cash}}</td>
-                <td>{{obj.bank_balance}}</td>
-                <td>{{obj.net_amount}}</td>
+                <td>{{obj.expense_acronym}}</td>
+                <td>{{obj.expense_category}}</td>
+                
               </tr>
               {% endfor %}
             </table>
