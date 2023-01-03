@@ -6,6 +6,7 @@
 #   * Remove `managed = False` lines if you wish to allow Django to create, modify, and delete the table
 # Feel free to rename the models, but don't rename db_table values or field names.
 from django.db import models
+from django.core.exceptions import ValidationError
 
 
 class AuthGroup(models.Model):
@@ -88,6 +89,17 @@ class Bankdata(models.Model):
     loan_no = models.IntegerField(db_column='LOAN_NO', blank=True, null=True)  # Field name made lowercase.
     withdrawable_amount = models.IntegerField(db_column='WITHDRAWABLE_AMOUNT', blank=True, null=True)  # Field name made lowercase.
     total_asset = models.BigIntegerField(db_column='TOTAL_ASSET', blank=True, null=True)  # Field name made lowercase.
+    
+    def  validate_bankdata(self):
+             self._validation_errors = {}
+             if self.withdrawable_amount > self.total_asset:
+                self._validation_errors['total_asset'] = ['Must be greater than withdrawable_amount.']
+                self._validation_errors['withdrawable_amount'] = ['Must be less than total_asset ']
+    def clean(self):
+        self.validate_bankdata()
+        if bool(self._validation_errors):
+            raise ValidationError(self._validation_errors)
+        super(Bankdata,self).clean() 
 
     class Meta:
         managed = False
@@ -161,10 +173,61 @@ class Incomesources(models.Model):
     total_cash = models.IntegerField(db_column='TOTAL_CASH', blank=True, null=True)  # Field name made lowercase.
     bank_balance = models.BigIntegerField(db_column='BANK_BALANCE', blank=True, null=True)  # Field name made lowercase.
     net_amount = models.BigIntegerField(db_column='NET_AMOUNT', blank=True, null=True)  # Field name made lowercase.
+    
+    
+    def  validate_incomesources1(self):
+             self._validation_errors = {}
+             if self.monthly_income > self.net_amount:
+                self._validation_errors['net_amount'] = ['Must be greater than monthly_income.']
+                self._validation_errors['monthly_income'] = ['Must be less than net_amount. ']
+
+    def clean(self):
+        self.validate_incomesources1()
+        if bool(self._validation_errors):
+            raise ValidationError(self._validation_errors)
+        super(Incomesources, self).clean()
+
+    def  validate_incomesources2(self):
+             self._validation_errors = {}
+             if self.rental_income > self.net_amount:
+                self._validation_errors['net_amount'] = ['Must be greater than rental_income.']
+                self._validation_errors['rental_income'] = ['Must be less than net_amount. ']
+
+    def clean(self):
+        self.validate_incomesources2()
+        if bool(self._validation_errors):
+            raise ValidationError(self._validation_errors)
+        super(Incomesources, self).clean()
+
+    def  validate_incomesources3(self):
+             self._validation_errors = {}
+             if self.intrest_amount > self.net_amount:
+                self._validation_errors['net_amount'] = ['Must be greater than intrest_amount.']
+                self._validation_errors['intrest_amount'] = ['Must be less than net_amount. ']
+
+    def clean(self):
+        self.validate_incomesources3()
+        if bool(self._validation_errors):
+            raise ValidationError(self._validation_errors)
+        super(Incomesources, self).clean()
+
+    def  validate_incomesources4(self):
+             self._validation_errors = {}
+             if self.other_sources > self.net_amount:
+                self._validation_errors['net_amount'] = ['Must be greater than other_sources.']
+                self._validation_errors['other_sources'] = ['Must be less than net_amount. ']
+
+    def clean(self):
+        self.validate_incomesources4()
+        if bool(self._validation_errors):
+            raise ValidationError(self._validation_errors)
+        super(Incomesources,self).clean()
 
     class Meta:
         managed = False
         db_table = 'incomesources'
+        
+    
 
 
 class MonthlyExpenses(models.Model):
