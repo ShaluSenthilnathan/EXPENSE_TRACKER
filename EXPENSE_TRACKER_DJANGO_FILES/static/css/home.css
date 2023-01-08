@@ -1,0 +1,27 @@
+.about-me {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 80px;
+    border-top: 2px solid #eeeeee;
+  }
+
+  .about-me img {
+    width: 500px;
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+
+  .about-me-text h2 {
+    font-size: 30px;
+    color: #333333;
+    text-transform: uppercase;
+    margin: 0;
+  }
+
+  .about-me-text p {
+    font-size: 15px;
+    color: #585858;
+    margin: 10px 0;
+  }
