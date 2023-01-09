@@ -150,3 +150,8 @@ def viewbankdata(request):
 def viewexpensescategory(request):
     user5 = Category.objects.all
     return render(request,'viewexpensescategory.html',{'user5':user5})
+
+def deleteuser(request,user_id):
+    object = Userinfo.objects.get(pk=user_id)
+    object.delete()
+    return redirect('viewuserdata')
