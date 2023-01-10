@@ -144,8 +144,8 @@ def viewmonthlyexpenses(request):
     return render(request,'viewmonthlyexpenses.html',{'user':user})
 
 def viewbankdata(request):
-    user4 = Bankdata.objects.all
-    return render(request,'viewbankdata.html',{'user4':user4})
+    user = Bankdata.objects.all
+    return render(request,'viewbankdata.html',{'user':user})
 
 def viewexpensescategory(request):
     user5 = Category.objects.all
@@ -160,3 +160,13 @@ def deletemonthlyexpenses(request,expense_no):
     object = MonthlyExpenses.objects.get(pk=expense_no)
     object.delete()
     return redirect('viewmonthlyexpenses')
+
+def deleteincomesources(request,source_id):
+    object = Incomesources.objects.get(pk=source_id)
+    object.delete()
+    return redirect('viewincomesources')
+
+def deletebankdata(request,deposit_no):
+    object = Bankdata.objects.get(pk=deposit_no)
+    object.delete()
+    return redirect('viewbankdata')

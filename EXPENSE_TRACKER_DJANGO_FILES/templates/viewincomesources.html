@@ -82,6 +82,7 @@
                 <th>TOTAL_CASH</th>
                 <th>BANK_BALANCE</th>
                 <th>NET_AMOUNT</th>
+                <th>DELETE ENTRY</th>
               </tr>
               {% for obj in user2 %}
               <tr>
@@ -94,6 +95,7 @@
                 <td>{{obj.total_cash}}</td>
                 <td>{{obj.bank_balance}}</td>
                 <td>{{obj.net_amount}}</td>
+                <td><a href="{% url 'deleteincomesources' obj.source_id %}">Delete</a></td>
               </tr>
               {% endfor %}
             </table>

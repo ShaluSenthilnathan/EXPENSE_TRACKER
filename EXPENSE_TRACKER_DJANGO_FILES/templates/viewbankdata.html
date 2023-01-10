@@ -84,8 +84,9 @@
                 <th>LOAN_NUMBER</th>
                 <th>WITHDRAWABLE_AMOUNT</th>
                 <th>TOTAL_ASSET</th>
+                <th>DELETE ENTRY</th>
               </tr>
-              {% for obj in user4 %}
+              {% for obj in user %}
               <tr>
                 <td>{{obj.userid}}</td>
                 <td>{{obj.bank_name}}</td>
@@ -97,6 +98,7 @@
                 <td>{{obj.loan_no}}</td>
                 <td>{{obj.withdrawable_amount}}</td>
                 <td>{{obj.total_asset}}</td>
+                <td><a href="{% url 'deletebankdata' obj.deposit_no %}">Delete</a></td>
               </tr>
               {% endfor %}
             </table>

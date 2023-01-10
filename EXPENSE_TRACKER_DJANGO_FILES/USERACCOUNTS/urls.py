@@ -25,4 +25,6 @@ urlpatterns = [
     
     path('delete/<user_id>',views.deleteuser,name='deleteuser'),
     path('deletemonthlyexpenses/<expense_no>',views.deletemonthlyexpenses,name='deletemonthlyexpenses'),
+    path('deleteincomesources/<source_id>',views.deleteincomesources,name='deleteincomesources'),
+    path('deletebankdata/<deposit_no>',views.deletebankdata,name='deletebankdata'),
 ]
