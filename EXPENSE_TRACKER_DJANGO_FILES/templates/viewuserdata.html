@@ -82,6 +82,7 @@
                 <th>EMAILID</th>
                 <th>PHONE NO</th>
                 <th>WORKING/NOT_WORKING</th>
+                <th>DELETE INFO</th>
               </tr>
               {% for obj in user1 %}
               <tr>
@@ -92,17 +93,14 @@
                 <td>{{obj.email}}</td>
                 <td>{{obj.phone_no}}</td>
                 <td>{{obj.working_or_not}}</td>
+                <td><a href="{% url 'deleteuser' obj.user_id %}">Delete</a></td>
               </tr>
               {% endfor %}
             </table>
              
             <br><br>
 
-            <form action="delete/U01" method="POST">
-              {% csrf_token %}
-                <input type="text" id="user_id" name="user_id" placeholder="Wanna Delete data? Enter Userid to confirm" autocomplete="off" required />
-                <input type="submit" name="delete">
-            </form>
+            
             
         </body>
     </div>
