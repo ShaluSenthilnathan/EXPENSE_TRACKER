@@ -155,3 +155,8 @@ def deleteuser(request,user_id):
     object = Userinfo.objects.get(pk=user_id)
     object.delete()
     return redirect('viewuserdata')
+
+def deletemonthlyexpenses(request,expense_no):
+    object = MonthlyExpenses.objects.get(pk=expense_no)
+    object.delete()
+    return redirect('viewmonthlyexpenses')
