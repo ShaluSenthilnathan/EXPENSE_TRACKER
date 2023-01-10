@@ -5,7 +5,8 @@ from django.contrib import messages
 from django.http import HttpResponse
 from USERACCOUNTS.models import *
 from django.contrib.auth.forms import UserCreationForm
-from USERACCOUNTS.forms import UserinfoTask,IncomesourcesTask
+from django.contrib.auth.decorators import login_required
+from USERACCOUNTS.forms import *
 
 def home(request):
     return render(request,'home.html')
@@ -82,27 +83,90 @@ def enteruserinfo(request):
         alldata = Userinfo.objects.all
         return render(request,'enteruserinfo.html',{'all_data':alldata})
         
-    
-    
+        
 def enterincomesources(request):
     if request.method == 'POST':
         form = IncomesourcesTask(request.POST or None)
         if form.is_valid():
-            instance = form.save(commit=False)
-            instance.userid = Userinfo.user_id
-            instance.save()
-        return redirect('home')
+            form.save()
+            return redirect('home')
+        else:
+            messages.error(request,form.errors)
+            print(form.errors)
+            return redirect('enterincomesources')
     else:
         alldata = Incomesources.objects.all
         return render(request,'enterincomesources.html',{'all_data':alldata})
-
-
+    
+def enterbankdata(request):
+    if request.method == 'POST':
+        form = BankdataTask(request.POST or None)
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+        else:
+            messages.error(request,form.errors)
+            print(form.errors)
+            return redirect('enterbankdata')
+    else:
+        alldata = Bankdata.objects.all
+        return render(request,'enterbankdata.html',{'all_data':alldata})
+    
+    
 def entermonthlyexpenses(request):
-    return render(request,'entermonthlyexpenses.html')
+    if request.method == 'POST':
+        form = MonthlyExpensesTask(request.POST or None)
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+        else:
+            messages.error(request,form.errors)
+            print(form.errors)
+            return redirect('entermonthlyexpenses')
+    else:
+        alldata = MonthlyExpenses.objects.all
+        return render(request,'entermonthlyexpenses.html',{'all_data':alldata})
+    
     
 def viewdata(request):
     return render(request,'viewdata.html')
 
 def viewuserdata(request):
-    user =  Userinfo.objects.all
-    return render(request,'viewuserdata.html',{'user':user})
+    user1 =  Userinfo.objects.all
+    return render(request,'viewuserdata.html',{'user1':user1})
+
+def viewincomesourcesdata(request):
+    user2 =  Incomesources.objects.all
+    return render(request,'viewincomesources.html',{'user2':user2})
+
+def viewmonthlyexpenses(request):
+    user = MonthlyExpenses.objects.all
+    return render(request,'viewmonthlyexpenses.html',{'user':user})
+
+def viewbankdata(request):
+    user = Bankdata.objects.all
+    return render(request,'viewbankdata.html',{'user':user})
+
+def viewexpensescategory(request):
+    user5 = Category.objects.all
+    return render(request,'viewexpensescategory.html',{'user5':user5})
+
+def deleteuser(request,user_id):
+    object = Userinfo.objects.get(pk=user_id)
+    object.delete()
+    return redirect('viewuserdata')
+
+def deletemonthlyexpenses(request,expense_no):
+    object = MonthlyExpenses.objects.get(pk=expense_no)
+    object.delete()
+    return redirect('viewmonthlyexpenses')
+
+def deleteincomesources(request,source_id):
+    object = Incomesources.objects.get(pk=source_id)
+    object.delete()
+    return redirect('viewincomesources')
+
+def deletebankdata(request,deposit_no):
+    object = Bankdata.objects.get(pk=deposit_no)
+    object.delete()
+    return redirect('viewbankdata')

@@ -13,8 +13,18 @@ urlpatterns = [
     path('enteroreditdata',views.enteroreditdata,name='enteroreditdata'),
     path('enteruserinfo',views.enteruserinfo,name='enteruserinfo'),
     path('enterincomesources',views.enterincomesources,name='enterincomesources'),
-    path('entermonthlyexpenses',views.entermonthlyexpenses,name='entermonthlyexpeses'),
+    path('entermonthlyexpenses',views.entermonthlyexpenses,name='entermonthlyexpenses'),
+    path('enterbankdata',views.enterbankdata,name='enterbankdata'),
     
     path('viewdata',views.viewdata,name='viewdata'),
     path('viewuserdata',views.viewuserdata,name='viewuserdata'),
+    path('viewincomesources',views.viewincomesourcesdata,name='viewincomesources'),
+    path('viewmonthlyexpenses',views.viewmonthlyexpenses,name='viewmonthlyexpenses'),
+    path('viewbankdata',views.viewbankdata,name='viewbankdata'),
+    path('viewexpensescategory',views.viewexpensescategory,name='viewexpensescategory'),
+    
+    path('delete/<user_id>',views.deleteuser,name='deleteuser'),
+    path('deletemonthlyexpenses/<expense_no>',views.deletemonthlyexpenses,name='deletemonthlyexpenses'),
+    path('deleteincomesources/<source_id>',views.deleteincomesources,name='deleteincomesources'),
+    path('deletebankdata/<deposit_no>',views.deletebankdata,name='deletebankdata'),
 ]

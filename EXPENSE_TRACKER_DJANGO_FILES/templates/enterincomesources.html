@@ -33,8 +33,7 @@
                   <li><a class="dropdown-item" href="/enterincomesources">INCOME SOURCES</a></li>
                   <li><a class="dropdown-item" href="/entermonthlyexpenses">MONTHLY EXPENSES</a></li>
                   <li><a class="dropdown-item" href="/enterbankdata">BANK DATA</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                
+                  
                 </ul>
               </li>
 
@@ -43,7 +42,7 @@
           </div>
         </div>
       </nav>
-
+      <br><br>
       {% for message in messages %}
       <div class="alert" >
         <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
@@ -62,7 +61,7 @@
                 <input type="text" name="userid" required><br>
 
                 <label>SOURCE NUMBER</label><br>  
-                <input type="number" name="source_id" required><br> 
+                <input type="text" name="source_id" required><br> 
                 
                 <label>MONTHLY INCOME</label><br>  
                 <input type="number" name="monthly_income" required><br> 
