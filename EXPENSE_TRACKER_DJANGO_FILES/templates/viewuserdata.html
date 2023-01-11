@@ -82,6 +82,7 @@
                 <th>EMAILID</th>
                 <th>PHONE NO</th>
                 <th>WORKING/NOT_WORKING</th>
+                <th>EDIT</th>
                 <th>DELETE INFO</th>
               </tr>
               {% for obj in user1 %}
@@ -93,6 +94,7 @@
                 <td>{{obj.email}}</td>
                 <td>{{obj.phone_no}}</td>
                 <td>{{obj.working_or_not}}</td>
+                <td><a href="{% url 'edituser' obj.user_id %}">Edit</a></td>
                 <td><a href="{% url 'deleteuser' obj.user_id %}">Delete</a></td>
               </tr>
               {% endfor %}

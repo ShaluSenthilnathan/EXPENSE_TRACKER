@@ -170,3 +170,17 @@ def deletebankdata(request,deposit_no):
     object = Bankdata.objects.get(pk=deposit_no)
     object.delete()
     return redirect('viewbankdata')
+
+def edituser(request,user_id):
+    if request.method == 'POST':
+        userdata = Userinfo.objects.get(pk=user_id)
+        form = UserinfoTask(request.POST or None,instance=userdata)
+        if form.is_valid():
+            form.save()
+        
+        
+        messages.success(request,("DATA SUCCESSFULY EDITED"))
+        return redirect('home')
+    else:
+        userdata = Userinfo.objects.get(pk=user_id)
+        return render(request,'edituserdata.html',{'userdata':userdata})
