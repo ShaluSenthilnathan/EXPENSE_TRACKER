@@ -64,7 +64,7 @@
         <form class="siteform" method="POST">  
             {% csrf_token %}
             <h3><b>EDIT INCOME SOURCES:</b></h3>
-        
+             <fieldset class="text-center">
             
                 <label>USERID</label><br>  
                 <input type="text" name="userid" required placeholder="{{ userdata.userid }}" value="{{ userdata.userid }}"><br>
@@ -93,7 +93,8 @@
                 <label>NET AMOUNT</label><br> 
                 <input type="number" name="net_amount" required placeholder="{{ userdata.net_amount }}" value="{{ userdata.net_amount }}"><br>
 
-                <button type="submit">Update</button>
+                <br><button type="submit">Update</button>
+             </fieldset>
             
          </form>    
       </div> 
