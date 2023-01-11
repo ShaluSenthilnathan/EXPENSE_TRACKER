@@ -80,6 +80,7 @@
                 <th>EXPENSE_DESCRIPTION</th>
                 <th>MODE_OF_PAYMENT</th>
                 <th>AMOUNT_SPENT</th>
+                <th>EDIT</th>
                 <th>DELETE ENTRY</th>
 
               </tr>
@@ -92,6 +93,7 @@
                 <td>{{obj.expense_desc}}</td>
                 <td>{{obj.mode_of_payment}}</td>
                 <td>{{obj.amount_spent}}</td>
+                <td><a href="{% url 'editmonthlyexpenses' obj.expense_no %}">Edit</a></td>
                 <td><a href="{% url 'deletemonthlyexpenses' obj.expense_no %}">Delete</a></td>
                 </tr>
               {% endfor %}

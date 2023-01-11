@@ -19,11 +19,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     
-    <style>
-    body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
-    .w3-bar,h1,button {font-family: "Montserrat", sans-serif}
-    .fa-anchor,.fa-coffee {font-size:200px}
-    </style>
+   
 
 
     <title>Home</title>
@@ -62,65 +58,45 @@
           </div>
         </div> 
       </nav>
-
-      
+    
 
       <div class="container">
-        <form method="post">  
+        <form class="siteform" method="POST">  
             {% csrf_token %}
-            <h3><b>USER INFORMATION:</b></h3>
-                <span>
-                  <p>
-                <label>USERID  </label>
-                <input type="text" name="user_id" placeholder="{{ userdata.user_id }}" value="{{ userdata.user_id }}">
-                  </p>
-                </span><br>
+            <h3><b>EDIT INCOME SOURCES:</b></h3>
+        
+            
+                <label>USERID</label><br>  
+                <input type="text" name="userid" required placeholder="{{ userdata.userid }}" value="{{ userdata.userid }}"><br>
 
-                <span>
-                  <p>
-                <label>NAME</label>
-                <input type="text" name="username" placeholder="{{ userdata.username }}" value="{{ userdata.username }}">
-                  </p>
-                </span><br>
+                <label>SOURCE NUMBER</label><br>  
+                <input type="text" name="source_id" required placeholder="{{ userdata.source_id }}" value="{{ userdata.source_id }}"><br> 
                 
-                <span>
-                  <p>
-                <label>GENDER</label>
-                <input type="text" name="gender" placeholder="{{ userdata.gender }}" value="{{ userdata.gender }}">
-                  </p>
-                </span><br>
+                <label>MONTHLY INCOME</label><br>  
+                <input type="number" name="monthly_income" required placeholder="{{ userdata.monthly_income }}" value="{{ userdata.monthly_income }}"><br> 
 
-                <span>
-                  <p>
-                <label>AGE(YRS)</label>
-                <input type="text" name="age" placeholder="{{ userdata.age }}" value="{{ userdata.age }}">
-                  </p>
-                </span><br>
+                <label>RENTAL INCOME</label><br>  
+                <input type="number" name="rental_income" required placeholder="{{ userdata.rental_income }}" value="{{ userdata.rental_income }}"><br>  
 
-                <span>
-                  <p>
-                <label>EMAILID</label>
-                <input type="email" name="email" placeholder="{{ userdata.email }}" value="{{ userdata.email }}">
-                </p>
-                </span><br>
+                <label>INTREST AMOUNT</label><br>  
+                <input type="number" name="intrest_amount" required placeholder="{{ userdata.intrest_amount }}" value="{{ userdata.intrest_amount }}"><br>  
 
-                <span>
-                  <p>
-                <label>PHONENO</label>
-                <input type="text" name="phone_no" placeholder="{{ userdata.phone_no }}" value="{{ userdata.phone_no }}">
-                  </p>
-                </span><br>
+                <label>OTHER SOURCES OF INCOME</label><br> 
+                <input type="number" name="other_sources" required placeholder="{{ userdata.other_sources }}" value="{{ userdata.other_sources }}"><br>
 
-                <span>
-                  <p>
-                <label>WORKING?</label>
-                <input type="text" name="working_or_not" placeholder="{{ userdata.working_or_not }}" value="{{ userdata.working_or_not }}">
-                  </p>
-                </span><br>
-                
+                <label>TOTAL LIQUID CASH</label><br> 
+                <input type="number" name="total_cash" required placeholder="{{ userdata.total_cash }}" value="{{ userdata.total_cash }}"><br>
+
+                <label>BANK BALANCE</label><br> 
+                <input type="number" name="bank_balance" required placeholder="{{ userdata.bank_balance }}" value="{{ userdata.bank_balance }}"><br>
+
+                <label>NET AMOUNT</label><br> 
+                <input type="number" name="net_amount" required placeholder="{{ userdata.net_amount }}" value="{{ userdata.net_amount }}"><br>
+
                 <button type="submit">Update</button>
-         </form>  
-      </div>
+            
+         </form>    
+      </div> 
 
       
 

@@ -19,12 +19,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     
-    <style>
-    body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
-    .w3-bar,h1,button {font-family: "Montserrat", sans-serif}
-    .fa-anchor,.fa-coffee {font-size:200px}
-    </style>
-
+    
 
     <title>Home</title>
   </head>
@@ -63,64 +58,48 @@
         </div> 
       </nav>
 
-      
-
       <div class="container">
-        <form method="post">  
+        <form class="siteform"  method="POST">  
             {% csrf_token %}
-            <h3><b>USER INFORMATION:</b></h3>
-                <span>
-                  <p>
-                <label>USERID  </label>
-                <input type="text" name="user_id" placeholder="{{ userdata.user_id }}" value="{{ userdata.user_id }}">
-                  </p>
-                </span><br>
+            <h3><b> EDIT BANK DATA:</b></h3>
+            
+            
+                <label>USERID</label><br>  
+                <input type="text" name="userid" required placeholder="{{ userdata.userid }}" value="{{ userdata.userid }}" ><br>
 
-                <span>
-                  <p>
-                <label>NAME</label>
-                <input type="text" name="username" placeholder="{{ userdata.username }}" value="{{ userdata.username }}">
-                  </p>
-                </span><br>
+                <label>BANK NAME</label><br>  
+                <input type="text" name="bank_name" required placeholder="{{ userdata.bank_name }}" value="{{ userdata.bank_name }}"><br> 
                 
-                <span>
-                  <p>
-                <label>GENDER</label>
-                <input type="text" name="gender" placeholder="{{ userdata.gender }}" value="{{ userdata.gender }}">
-                  </p>
-                </span><br>
+                <label>DEPOSIT NUMBER</label><br>  
+                <input type="number" name="deposit_no" required placeholder="{{ userdata.deposit_no }}" value="{{ userdata.deposit_no }}"><br> 
 
-                <span>
-                  <p>
-                <label>AGE(YRS)</label>
-                <input type="text" name="age" placeholder="{{ userdata.age }}" value="{{ userdata.age }}">
-                  </p>
-                </span><br>
+                <label>DEPOSIT AMOUNT</label><br>  
+                <input type="number" name="deposit_amount" required placeholder="{{ userdata.deposit_amount }}" value="{{ userdata.deposit_amount}}"><br>  
 
-                <span>
-                  <p>
-                <label>EMAILID</label>
-                <input type="email" name="email" placeholder="{{ userdata.email }}" value="{{ userdata.email }}">
-                </p>
-                </span><br>
+                <label>MATURITY DATE</label><br>  
+                <input type="date" name="maturity_date" required placeholder="{{ userdata.maturity_date }}" value="{{ userdata.maturity_date }}"><br>  
 
-                <span>
-                  <p>
-                <label>PHONENO</label>
-                <input type="text" name="phone_no" placeholder="{{ userdata.phone_no }}" value="{{ userdata.phone_no }}">
-                  </p>
-                </span><br>
+                <label>EMI NUMBER</label><br> 
+                <input type="number" name="emi_number" placeholder="{{ userdata.emi_number }}" value="{{ userdata.emi_number }}"><br>
 
-                <span>
-                  <p>
-                <label>WORKING?</label>
-                <input type="text" name="working_or_not" placeholder="{{ userdata.working_or_not }}" value="{{ userdata.working_or_not }}">
-                  </p>
-                </span><br>
-                
-                <button type="submit">Update</button>
-         </form>  
-      </div>
+                <label>EMI AMOUNT</label><br> 
+                <input type="number" name="emi_amount" placeholder="{{ userdata.emi_amount }}" value="{{ userdata.emi_amount }}" ><br>
+
+                <label>LOAN NUMBER</label><br> 
+                <input type="number" name="loan_no" placeholder="{{ userdata.loan_no }}" value="{{ userdata.loan_no }}"><br>
+
+                <label>WITHDRAW AMOUNT</label><br> 
+                <input type="number" name="withdrawable_amount" required placeholder="{{ userdata.withdrawable_amount }}" value="{{ userdata.withdrawable_amount }}"><br>
+
+                <label>TOTAL ASSET</label><br> 
+                <input type="number" name="total_asset" required placeholder="{{ userdata.total_asset }}" value="{{ userdata.total_asset }}"><br>
+
+                <br><button type="submit">Update</button>
+
+            
+         </form>    
+      </div> 
+      
 
       
 

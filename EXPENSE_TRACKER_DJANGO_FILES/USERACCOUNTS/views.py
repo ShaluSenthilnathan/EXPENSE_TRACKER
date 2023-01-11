@@ -177,10 +177,44 @@ def edituser(request,user_id):
         form = UserinfoTask(request.POST or None,instance=userdata)
         if form.is_valid():
             form.save()
-        
-        
         messages.success(request,("DATA SUCCESSFULY EDITED"))
-        return redirect('home')
+        return redirect('viewuserdata')
     else:
         userdata = Userinfo.objects.get(pk=user_id)
         return render(request,'edituserdata.html',{'userdata':userdata})
+    
+def editmonthlyexpenses(request,expense_no):
+    if request.method == 'POST':
+        userdata = MonthlyExpenses.objects.get(pk=expense_no)
+        form = MonthlyExpensesTask(request.POST or None,instance=userdata)
+        if form.is_valid():
+            form.save()
+        messages.success(request,("DATA SUCCESSFULY EDITED"))
+        return redirect('viewmonthlyexpenses')
+    else:
+        userdata = MonthlyExpenses.objects.get(pk=expense_no)
+        return render(request,'editmonthlyexpenses.html',{'userdata':userdata})
+    
+def editincomesources(request,source_id):
+    if request.method == 'POST':
+        userdata = Incomesources.objects.get(pk=source_id)
+        form = IncomesourcesTask(request.POST or None,instance=userdata)
+        if form.is_valid():
+            form.save()
+        messages.success(request,("DATA SUCCESSFULY EDITED"))
+        return redirect('viewincomesources')
+    else:
+        userdata = MonthlyExpenses.objects.get(pk=source_id)
+        return render(request,'editincomesources.html',{'userdata':userdata})
+    
+def editbankdata(request,deposit_no):
+    if request.method == 'POST':
+        userdata = Bankdata.objects.get(pk=deposit_no)
+        form = BankdataTask(request.POST or None,instance=userdata)
+        if form.is_valid():
+            form.save()
+        messages.success(request,("DATA SUCCESSFULY EDITED"))
+        return redirect('viewbankdata')
+    else:
+        userdata = Bankdata.objects.get(pk=deposit_no)
+        return render(request,'editbankdata.html',{'userdata':userdata})
