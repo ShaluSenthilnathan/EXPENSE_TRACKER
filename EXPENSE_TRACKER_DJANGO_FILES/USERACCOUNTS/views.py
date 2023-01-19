@@ -8,6 +8,10 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from USERACCOUNTS.forms import *
 
+import matplotlib.pyplot as plt 
+from matplotlib.pyplot import Figure
+from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
+
 def home(request):
     return render(request,'home.html')
 
@@ -141,7 +145,7 @@ def viewincomesourcesdata(request):
 
 def viewmonthlyexpenses(request):
     user = MonthlyExpenses.objects.all
-    return render(request,'viewmonthlyexpenses.html',{'user':user})
+    return render(request,'viewmonthlyexpenses.html',{'user':user}) 
 
 def viewbankdata(request):
     user = Bankdata.objects.all
@@ -218,3 +222,5 @@ def editbankdata(request,deposit_no):
     else:
         userdata = Bankdata.objects.get(pk=deposit_no)
         return render(request,'editbankdata.html',{'userdata':userdata})
+    
+    
