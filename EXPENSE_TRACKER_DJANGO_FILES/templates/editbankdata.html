@@ -118,9 +118,7 @@
               <li class="nav-item">
                 <a class="nav-link" aria-current="page" href="#">Home</a>
               </li>
-              
-              
-              
+            
               {% if user.is_authenticated %}
               <li><a class="nav-link">Hello , {{user.first_name}}</a></li>
               <li><a class="nav-link" href="/enteroreditdata">Enter/Edit Data</a></li>
@@ -146,7 +144,6 @@
             {% csrf_token %}
             <center><h3><b> EDIT BANK DATA:</b></h3></center>
              <fieldset class="text-center">
-            
             
                 <label>USERID</label><br>  
                 <input type="text" name="userid" required placeholder="{{ userdata.userid }}" value="{{ userdata.userid }}" ><br>
@@ -183,14 +180,5 @@
              </fieldset>
          </form>    
       </div> 
-      
-
-      
-
-      
-      
-    
-
-
  </body>
 </html>
