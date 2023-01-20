@@ -116,33 +116,23 @@
 
         <center><canvas id="myChart" style="width:100%;max-width:800px"></canvas></center>
         <script>
-var xValues = ["Variable Expenses", "Discrete Expenses","Fixed Expenses","Remainder Expenses","Savings"];
-var yValues = [ 21.33,40,13.33,15.33,10.0];
-var barColors = [
-  "#fff68f",
-  "#00aba9",
-  "#d5e9dc",
-  "#95baf7",
-  "#df9fb7",
-];
+        var xValues = ["Variable Expenses", "Discrete Expenses","Fixed Expenses","Remainder Expenses","Savings"];
+        var yValues = [ 21.33,40,13.33,15.33,10.0];
+        var barColors = ["#fff68f","#00aba9","#d5e9dc","#95baf7","#df9fb7",];
 
-new Chart("myChart", {
-  type: "pie",
-  data: {
-    labels: xValues,
-    datasets: [{
-      backgroundColor: barColors,
-      data: yValues
-    }]
-  },
-  options: {
-    title: {
-      display: true,
-      text: "RECOMENDED FINANCIAL CHART FOR HEALTHY BUDGETING"
-    }
-  }
-});
-</script>
+        new Chart("myChart", {
+        type: "pie",
+        data: {
+          labels: xValues,
+          datasets: [{
+          backgroundColor: barColors,
+          data: yValues
+        }]},
+        options: {
+        title: {
+        display: true,
+        text: "RECOMENDED FINANCIAL CHART FOR HEALTHY BUDGETING"}}});
+        </script>
       </body>
     </div>
 
