@@ -7,6 +7,7 @@
 # Feel free to rename the models, but don't rename db_table values or field names.
 from django.db import models
 from django.core.exceptions import ValidationError
+from django.db.models import F
 
 
 class AuthGroup(models.Model):
@@ -238,6 +239,10 @@ class MonthlyExpenses(models.Model):
     expense_desc = models.CharField(db_column='EXPENSE_DESC', max_length=20, blank=True, null=True)  # Field name made lowercase.
     mode_of_payment = models.CharField(db_column='MODE_OF_PAYMENT', max_length=20, blank=True, null=True)  # Field name made lowercase.
     amount_spent = models.IntegerField(db_column='AMOUNT_SPENT', blank=True, null=True)  # Field name made lowercase.
+    
+    def save(self, *args, **kwargs):
+        Incomesources.objects.filter(userid_id=self.userid).update(net_amount=F('net_amount')-self.amount_spent)
+        super(MonthlyExpenses, self).save(*args,**kwargs)
 
     class Meta:
         managed = False

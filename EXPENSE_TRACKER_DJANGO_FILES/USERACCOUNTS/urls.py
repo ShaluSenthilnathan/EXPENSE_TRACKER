@@ -27,4 +27,10 @@ urlpatterns = [
     path('deletemonthlyexpenses/<expense_no>',views.deletemonthlyexpenses,name='deletemonthlyexpenses'),
     path('deleteincomesources/<source_id>',views.deleteincomesources,name='deleteincomesources'),
     path('deletebankdata/<deposit_no>',views.deletebankdata,name='deletebankdata'),
+    
+    path('edit/<user_id>',views.edituser,name='edituser'),
+    path('editmonthlyexpenses/<expense_no>',views.editmonthlyexpenses,name='editmonthlyexpenses'),
+    path('editincomesources/<source_id>',views.editincomesources,name='editincomesources'),
+    path('editbankdata/<deposit_no>',views.editbankdata,name='editbankdata'),
+    
 ]

@@ -60,7 +60,6 @@ input[type=submit] {
 	color:white;
 	cursor:pointer;
 	display:inline-block;
-	float:right;
 	clear:right;
 	-webkit-transition:0.2s ease all;
 	   -moz-transition:0.2s ease all;
@@ -80,7 +79,7 @@ input[type="submit"]:active {
 .forgot,
 .register {
 	margin:10px;
-	float:left;
+	
 	clear:left;
 	display:inline-block;
 	color:cornflowerblue;

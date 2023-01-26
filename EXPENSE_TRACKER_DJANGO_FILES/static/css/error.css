@@ -1,10 +1,12 @@
 /* The alert message box */
-.alert {
+.alert{
     padding: 5px;
-    background-color: #f44336; /* Red */
+    background-color:rgb(92, 102, 180);
     color: white;
     margin-bottom: 15px;
   }
+
+  
   
   /* The close button */
   .closebtn {
