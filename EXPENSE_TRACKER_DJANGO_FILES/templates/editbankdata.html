@@ -155,7 +155,7 @@
                 <input type="number" name="deposit_no" required placeholder="{{ userdata.deposit_no }}" value="{{ userdata.deposit_no }}"><br> 
 
                 <label>DEPOSIT AMOUNT</label><br>  
-                <input type="number" name="deposit_amount" required placeholder="{{ userdata.deposit_amount }}" value="{{ userdata.deposit_amount}}"><br>  
+                <input type="number" name="deposit_amount"  min="1" required placeholder="{{ userdata.deposit_amount }}" value="{{ userdata.deposit_amount}}"><br>  
 
                 <label>MATURITY DATE</label><br>  
                 <input type="date" name="maturity_date" required placeholder="{{ userdata.maturity_date }}" value="{{ userdata.maturity_date }}"><br>  
@@ -170,10 +170,10 @@
                 <input type="number" name="loan_no" placeholder="{{ userdata.loan_no }}" value="{{ userdata.loan_no }}"><br>
 
                 <label>WITHDRAW AMOUNT</label><br> 
-                <input type="number" name="withdrawable_amount" required placeholder="{{ userdata.withdrawable_amount }}" value="{{ userdata.withdrawable_amount }}"><br>
+                <input type="number" name="withdrawable_amount"  min="1" required placeholder="{{ userdata.withdrawable_amount }}" value="{{ userdata.withdrawable_amount }}"><br>
 
                 <label>TOTAL ASSET</label><br> 
-                <input type="number" name="total_asset" required placeholder="{{ userdata.total_asset }}" value="{{ userdata.total_asset }}"><br>
+                <input type="number" name="total_asset"  min="1" required placeholder="{{ userdata.total_asset }}" value="{{ userdata.total_asset }}"><br>
 
                 <br><input type="submit" value="Update">  
 

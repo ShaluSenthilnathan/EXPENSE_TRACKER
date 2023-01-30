@@ -94,25 +94,25 @@
                 <input type="text" name="source_id" required><br> 
                 
                 <label>MONTHLY INCOME</label><br>  
-                <input type="number" name="monthly_income" required><br> 
+                <input type="number" name="monthly_income" min="1" required><br> 
 
                 <label>RENTAL INCOME</label><br>  
-                <input type="number" name="rental_income" required><br>  
+                <input type="number" name="rental_income"  min="1" required><br>  
 
                 <label>INTREST AMOUNT</label><br>  
-                <input type="number" name="intrest_amount" required><br>  
+                <input type="number" name="intrest_amount"  min="0" required><br>  
 
                 <label>OTHER SOURCES OF INCOME</label><br> 
-                <input type="number" name="other_sources" required><br>
+                <input type="number" name="other_sources" min="0" required><br>
 
                 <label>TOTAL LIQUID CASH</label><br> 
-                <input type="number" name="total_cash" required><br>
+                <input type="number" name="total_cash" min="1" required><br>
 
                 <label>BANK BALANCE</label><br> 
-                <input type="number" name="bank_balance" required><br>
+                <input type="number" name="bank_balance" min="1" required><br>
 
                 <label>NET AMOUNT</label><br> 
-                <input type="number" name="net_amount" required><br>
+                <input type="number" name="net_amount" min="1" required><br>
 
                 
                 <br><input type="submit" value="SUBMIT">  
