@@ -148,31 +148,31 @@
              <fieldset class="text-center">
             
                 <label>USERID</label><br>  
-                <input type="text" name="userid" required placeholder="{{ userdata.userid }}" value="{{ userdata.userid }}"><br>
+                <input type="text" name="userid"  required placeholder="{{ userdata.userid }}" value="{{ userdata.userid }}"><br>
 
                 <label>SOURCE NUMBER</label><br>  
                 <input type="text" name="source_id" required placeholder="{{ userdata.source_id }}" value="{{ userdata.source_id }}"><br> 
                 
                 <label>MONTHLY INCOME</label><br>  
-                <input type="number" name="monthly_income" required placeholder="{{ userdata.monthly_income }}" value="{{ userdata.monthly_income }}"><br> 
+                <input type="number" name="monthly_income"  min="1" required placeholder="{{ userdata.monthly_income }}" value="{{ userdata.monthly_income }}"><br> 
 
                 <label>RENTAL INCOME</label><br>  
-                <input type="number" name="rental_income" required placeholder="{{ userdata.rental_income }}" value="{{ userdata.rental_income }}"><br>  
+                <input type="number" name="rental_income"  min="0" required placeholder="{{ userdata.rental_income }}" value="{{ userdata.rental_income }}"><br>  
 
                 <label>INTREST AMOUNT</label><br>  
-                <input type="number" name="intrest_amount" required placeholder="{{ userdata.intrest_amount }}" value="{{ userdata.intrest_amount }}"><br>  
+                <input type="number" name="intrest_amount"  min="0" required placeholder="{{ userdata.intrest_amount }}" value="{{ userdata.intrest_amount }}"><br>  
 
                 <label>OTHER SOURCES OF INCOME</label><br> 
-                <input type="number" name="other_sources" required placeholder="{{ userdata.other_sources }}" value="{{ userdata.other_sources }}"><br>
+                <input type="number" name="other_sources"  min="0" required placeholder="{{ userdata.other_sources }}" value="{{ userdata.other_sources }}"><br>
 
                 <label>TOTAL LIQUID CASH</label><br> 
-                <input type="number" name="total_cash" required placeholder="{{ userdata.total_cash }}" value="{{ userdata.total_cash }}"><br>
+                <input type="number" name="total_cash"  min="1" required placeholder="{{ userdata.total_cash }}" value="{{ userdata.total_cash }}"><br>
 
                 <label>BANK BALANCE</label><br> 
-                <input type="number" name="bank_balance" required placeholder="{{ userdata.bank_balance }}" value="{{ userdata.bank_balance }}"><br>
+                <input type="number" name="bank_balance"  min="1" required placeholder="{{ userdata.bank_balance }}" value="{{ userdata.bank_balance }}"><br>
 
                 <label>NET AMOUNT</label><br> 
-                <input type="number" name="net_amount" required placeholder="{{ userdata.net_amount }}" value="{{ userdata.net_amount }}"><br>
+                <input type="number" name="net_amount"  min="1" required placeholder="{{ userdata.net_amount }}" value="{{ userdata.net_amount }}"><br>
 
                 <br><input type="submit" value="Update">  
              </fieldset>
