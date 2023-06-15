@@ -8,5 +8,6 @@ __Requirements:__
  
  __Screenshots:__
  1. Login Page:
+    ![Alt Text](Images/Home_Page.png)
 
 
