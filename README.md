@@ -5,19 +5,25 @@ __Requirements:__
  Web-based Framework: Django 4.1.2
  
  __Screenshots:__
+ 
 __Login Page:__
+
 ![Alt Text](Images/Login_Page.png)
 
 __Home Page:__
+
 ![Alt Text](Images/Home_Page.png)
 
 __User Information Page:__
+
 ![Alt Text](Images/User_Information_Page.png)
 
 __Enter Monthly Expenses:__
+
 ![Alt Text](Images/Enter_Monthly_Expenses.png)
 
 __View Monthly Expenses:__
+
 ![Alt Text](Images/View_Monthy_Expenses.png)
     
 
